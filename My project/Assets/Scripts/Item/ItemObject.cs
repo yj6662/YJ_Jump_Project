@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ItemObject : MonoBehaviour, IInteractable
@@ -15,6 +12,7 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
+        Debug.Log("ItemObject OnInteract Called! Item: " + data.displayName);
         if (CharacterManager.Instance != null && CharacterManager.Instance.Player != null)
         {
             CharacterManager.Instance.Player.AddItemToInventory(data);

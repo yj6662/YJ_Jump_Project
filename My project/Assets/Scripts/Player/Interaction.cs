@@ -89,6 +89,7 @@ public class Interaction : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started && curInteractable != null)
         {
+            Debug.Log("Interact!");
             curInteractable.OnInteract();
             ClearInteractionTarget();
         }

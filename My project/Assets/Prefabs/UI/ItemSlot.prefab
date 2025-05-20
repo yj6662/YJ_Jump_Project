@@ -91,6 +91,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e902239f879c166458c6fd0c5a3775e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  inventory: {fileID: 0}
+  icon: {fileID: 2764738462506310432}
+  quantityText: {fileID: 553272740069684119}
+  index: 0
+  isSelected: 0
+  quantity: 0
 --- !u!114 &2994060546187610584
 MonoBehaviour:
   m_ObjectHideFlags: 0

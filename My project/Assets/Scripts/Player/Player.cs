@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public PlayerController controller;
     public PlayerCondition condition;
-    //public UIInventory uiInventory;
+    public UIInventory uiInventory;
 
     private void Awake()
     {
@@ -17,14 +17,19 @@ public class Player : MonoBehaviour
         
         controller = GetComponent<PlayerController>();
         condition = GetComponent<PlayerCondition>();
-        //uiInventory = GetComponent<UIInventory>();
+        uiInventory = GetComponent<UIInventory>();
     }
 
     public void AddItemToInventory(ItemData data)
     {
-        /*if (uiInventory != null)
+        Debug.Log("Player AddItemToInventory Called: " + data.displayName);
+        if (uiInventory != null)
         {
             uiInventory.AddItem(data);
-        }*/
+        }
+        else
+        {
+            Debug.Log("UIInventory is null!");
+        }
     }
 }

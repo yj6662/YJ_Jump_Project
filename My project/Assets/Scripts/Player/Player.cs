@@ -20,11 +20,11 @@ public class Player : MonoBehaviour
         //uiInventory = GetComponent<UIInventory>();
     }
 
-    /*public void AddItemToInventory(ItemData data)
+    public void AddItemToInventory(ItemData data)
     {
-        if (uiInventory != null)
+        /*if (uiInventory != null)
         {
             uiInventory.AddItem(data);
-        }
-    }*/
+        }*/
+    }
 }

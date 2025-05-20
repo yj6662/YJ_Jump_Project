@@ -19,7 +19,7 @@ public class PlayerCondition : MonoBehaviour
 
         if (health != null)
         {
-            health.Add(health.passiveValue * Time.deltaTime);;
+            health.Add(health.passiveValue * Time.deltaTime);
         }
 
         if (health.curValue <= 0)

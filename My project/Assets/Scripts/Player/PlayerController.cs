@@ -24,12 +24,12 @@ public class PlayerController : MonoBehaviour
     public bool canLook = true;
 
     private Rigidbody _rigidbody;
-    //private UIInventory _uiInventory;
+    private UIInventory uiInventory;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        //_uiInventory = GetComponent<UIInventory>();
+        uiInventory = GetComponent<UIInventory>();
     }
 
     void Start()
@@ -144,5 +144,68 @@ public class PlayerController : MonoBehaviour
         
         hitInfo = default;
         return false;
+    }
+    public void OnQuickSlot1(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && uiInventory != null)
+        {
+            uiInventory.SelectItem(0);
+        }
+    }
+    public void OnQuickSlot2(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && uiInventory != null)
+        {
+            uiInventory.SelectItem(1);
+        }
+    }
+    public void OnQuickSlot3(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && uiInventory != null)
+        {
+            uiInventory.SelectItem(2);
+        }
+    }
+    public void OnQuickSlot4(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && uiInventory != null)
+        {
+            uiInventory.SelectItem(3);
+        }
+    }
+    public void OnQuickSlot5(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && uiInventory != null)
+        {
+            uiInventory.SelectItem(4);
+        }
+    }
+    public void OnQuickSlot6(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && uiInventory != null)
+        {
+            uiInventory.SelectItem(5);
+        }
+    }
+    public void OnQuickSlot7(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && uiInventory != null)
+        {
+            uiInventory.SelectItem(6);
+        }
+    }
+    public void OnQuickSlot8(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && uiInventory != null)
+        {
+            uiInventory.SelectItem(7);
+        }
+    }
+    public void OnUseQuickSlotItem(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && uiInventory != null)
+        {
+            uiInventory.UseSelectedItem();
+        }
     }
 }

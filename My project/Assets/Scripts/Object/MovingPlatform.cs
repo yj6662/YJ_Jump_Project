@@ -8,7 +8,9 @@ public class MovingPlatform : MonoBehaviour
     public float speed;
     public float waitTime;
 
+
     private int curWayPointIndex;
+    private Transform player;
 
     private void Start()
     {
@@ -17,6 +19,7 @@ public class MovingPlatform : MonoBehaviour
             transform.position = waypoints[0].position;
             StartCoroutine(MovePlatform());
         }
+
     }
     
     private IEnumerator MovePlatform()
@@ -40,4 +43,23 @@ public class MovingPlatform : MonoBehaviour
             yield return null;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            player = collision.transform;
+            player.SetParent(transform); 
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            player.SetParent(null); 
+            player = null;
+        }
+    }
+
 }

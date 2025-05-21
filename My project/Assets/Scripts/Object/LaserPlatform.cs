@@ -12,6 +12,7 @@ public class LaserPlatform : MonoBehaviour
     public GameObject trap;
     public float laserDistance;
     public float gravitymultiplier;
+    public LineRenderer laserLine;
 
     private Rigidbody trapRb;
     private float lastLaserCheckTime;
@@ -20,11 +21,15 @@ public class LaserPlatform : MonoBehaviour
     private void Awake()
     {
         trapRb = trap.GetComponent<Rigidbody>();
+        laserLine = GetComponent<LineRenderer>();
     }
 
     private void Start()
     {
-        
+        laserLine.startWidth = 0.01f;
+        laserLine.endWidth = 0.01f;
+        laserLine.startColor = Color.red;
+        laserLine.endColor = Color.red;
     }
 
     private void Update()
@@ -34,6 +39,8 @@ public class LaserPlatform : MonoBehaviour
             lastLaserCheckTime = Time.time;
             CheckPlayerCollision();
         }
+        laserLine.SetPosition(0, laserShoot.position);
+        laserLine.SetPosition(1, laserTarget.position);
     }
 
     private void CheckPlayerCollision()

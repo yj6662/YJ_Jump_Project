@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float jumpPower = 10f;
     public LayerMask groundLayerMask;
     public float maxSlopeAngle = 45f;
+    public float slidePower = 1f;
 
     [Header("Look")] public Transform cameraContainer;
     public float minXLook;
@@ -97,8 +98,12 @@ public class PlayerController : MonoBehaviour
             
             if (slopeAngle > maxSlopeAngle)
             {
-                horizontalMovement = Vector3.zero;
-                // TODO: 필요하다면 미끄러지는 힘을 주거나 다른 경사 처리 로직 추가
+                float slidePowerNet = (slopeAngle - maxSlopeAngle) * slidePower;
+                Vector3 slideDirection = Vector3.ProjectOnPlane(Vector3.down, hit.normal).normalized;
+                Vector3 slideForce = slideDirection * slidePowerNet;
+        
+                _rigidbody.AddForce(slideForce, ForceMode.Force);
+                horizontalMovement *= Mathf.Clamp01(1 - (slopeAngle - maxSlopeAngle) / 20f); 
             }
         }
         
@@ -120,7 +125,7 @@ public class PlayerController : MonoBehaviour
     }
     bool IsGrounded()
     {
-        RaycastHit hit; // hitInfo는 필요 없지만 TryGetGroundHit의 out 키워드를 위해 선언
+        RaycastHit hit;
         return TryGetGroundHit(out hit);
     }
 

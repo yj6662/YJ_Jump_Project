@@ -123,9 +123,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Switchto3rdPerson",
+                    "name": "CameraSwitch",
                     "type": "Button",
-                    "id": "d354b280-5c4d-43e4-a601-f5a635fc2794",
+                    "id": "99fa1981-84bd-45de-b5bc-730a1bb1cb34",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -322,12 +322,12 @@
                 },
                 {
                     "name": "",
-                    "id": "8a2b1a45-3ff3-498a-8ff3-f95f3858d79f",
-                    "path": "<Keyboard>/f5",
+                    "id": "0ae1ca32-6767-4961-a56a-9cc34650eaaa",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switchto3rdPerson",
+                    "action": "CameraSwitch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

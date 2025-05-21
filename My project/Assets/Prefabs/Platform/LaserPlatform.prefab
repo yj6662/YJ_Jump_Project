@@ -240,7 +240,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 6.88, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1155877055531398705}
@@ -273,7 +273,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 202c5159be2241d4682cfcbb8d30c7d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -302,7 +302,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3665091063163858791}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f4b7c6c85b9ca444c8a1b3f113f0acca, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -324,7 +324,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3665091063163858791}
   serializedVersion: 4
-  m_Mass: 200
+  m_Mass: 500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -393,12 +393,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserShoot: {fileID: 1843571282982197356}
   laserTarget: {fileID: 6523605883954735382}
-  laserCheckRate: 0.1
+  laserCheckRate: 0.05
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
   trap: {fileID: 3665091063163858791}
   laserDistance: 0
+  gravitymultiplier: 0
 --- !u!1 &8018257462190282345
 GameObject:
   m_ObjectHideFlags: 0

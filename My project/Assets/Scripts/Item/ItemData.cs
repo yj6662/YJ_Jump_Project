@@ -15,11 +15,25 @@ public enum ConsumableType
     Buff,
 }
 
+public enum BuffType
+{
+    Speed,
+    Jump,
+}
+
 [System.Serializable]
 public class ItemDataConsumable
 {
     public  ConsumableType type;
     public float value;
+}
+
+[System.Serializable]
+public class ItemDataBuff
+{
+    public BuffType type;
+    public float value;
+    public float duration;
 }
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
@@ -33,6 +47,9 @@ public class ItemData : ScriptableObject
     
     [Header("Consumable")]
     public ItemDataConsumable[] consumables;
+    
+    [Header("Buff")]
+    public ItemDataBuff[] buffs;
 
     [Header("Stackable")]
     public bool canStack;

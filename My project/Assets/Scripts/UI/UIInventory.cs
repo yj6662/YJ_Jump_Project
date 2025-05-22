@@ -166,7 +166,10 @@ public class UIInventory : MonoBehaviour
                     condition.stamina.Add(consumableItem.consumables[i].value);
                     break;
                 case ConsumableType.Buff:
-                    //TODO: 버프 구현 (속도, 점프력 등)
+                    foreach (ItemDataBuff buff in consumableItem.buffs)
+                    {
+                        controller.ApplyBuff(buff);
+                    }
                     break;
             }
         }

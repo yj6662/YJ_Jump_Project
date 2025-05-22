@@ -6,8 +6,9 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public string GetInteractPrompt()
     {
+        string prompt = "`E`키를 눌러 상호작용<br>";
         string str = $"{data.name}\n{data.description}";
-        return str;
+        return prompt + str;
     }
 
     public void OnInteract()

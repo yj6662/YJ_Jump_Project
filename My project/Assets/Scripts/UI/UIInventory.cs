@@ -11,7 +11,9 @@ public class UIInventory : MonoBehaviour
 
     private ItemSlot selectedItem;
     private int selectedItemIndex = -1;
-
+    public BuffDuration speedBuffDuration;
+    public BuffDuration jumpBuffDuration;
+    
     private PlayerController controller;
     private PlayerCondition condition;
     
@@ -169,6 +171,14 @@ public class UIInventory : MonoBehaviour
                     foreach (ItemDataBuff buff in consumableItem.buffs)
                     {
                         controller.ApplyBuff(buff);
+                        if (buff.type == BuffType.Speed)
+                        {
+                            speedBuffDuration.StartBuff(buff.duration);
+                        }
+                        else if (buff.type == BuffType.Jump)
+                        {
+                            jumpBuffDuration.StartBuff(buff.duration);
+                        }
                     }
                     break;
             }

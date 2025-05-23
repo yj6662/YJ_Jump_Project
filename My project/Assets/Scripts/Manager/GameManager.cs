@@ -20,15 +20,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Start()
-    {
-        SceneManager.LoadScene("StartScene");
-    }
-
     public void StartGame()
     {
-        SceneManager.LoadScene("MainScene");
         Time.timeScale = 1f;
+        Debug.Log("Start Game");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void QuitGame()

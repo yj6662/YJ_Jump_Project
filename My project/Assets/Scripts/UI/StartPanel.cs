@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StartPanel : MonoBehaviour
 {
     public GameObject howToPlayPanel;
+    
  
     private void Start()
     {
@@ -13,6 +14,7 @@ public class StartPanel : MonoBehaviour
     }
     public void OnStartGame()
     {
+        Debug.Log("Start Game");
         GameManager.Instance.StartGame();
     }
     public void OnHowToPlay()

@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     public float slidePower = 1f;
     public float maxSpeed = 5f;
     public float acceleration = 20f;
+    private bool canRun = true;
+    public float staminaDecreaseRate = 40f;
+    private bool isRunning = false;
 
     [Header("Look")] public Transform cameraContainer;
     public float minXLook;
@@ -30,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rigidbody;
     private UIInventory uiInventory;
+    private PlayerCondition condition;
     
     private Dictionary<BuffType, float> activeBuffs = new Dictionary<BuffType, float>();
 
@@ -37,6 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         uiInventory = GetComponent<UIInventory>();
+        condition = GetComponent<PlayerCondition>();
         baseMoveSpeed = moveSpeed;
         baseJumpPower = jumpPower;
     }
@@ -71,6 +76,20 @@ public class PlayerController : MonoBehaviour
                     jumpPower = baseJumpPower;
                     break;
             }
+        }
+
+        if (isRunning)
+        {
+            condition.DecreaseStamina(staminaDecreaseRate * Time.deltaTime);
+            if (condition.stamina.curValue <= 0f)
+            {
+                isRunning = false;
+                canRun = false;
+            }
+        }
+        else
+        {
+            canRun = true;
         }
     }
 
@@ -112,6 +131,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnRunInput(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed && IsGrounded() && canRun)
+        {
+            isRunning = true;
+            moveSpeed = baseMoveSpeed * 2f;
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            isRunning = false;
+            moveSpeed = baseMoveSpeed;
+        }
+    }
     private void Move()
     {
         Vector3 horizontalMovement = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
@@ -155,7 +187,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
 
     void CameraLook()
     {

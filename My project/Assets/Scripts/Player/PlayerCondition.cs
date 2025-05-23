@@ -45,6 +45,14 @@ public class PlayerCondition : MonoBehaviour
         onTakeDamage?.Invoke();
     }
 
+    public void DecreaseStamina(float amount)
+    {
+        if (stamina != null)
+        {
+            stamina.Subtract(amount);
+        }
+    }
+
     public void Die()
     {
         Debug.Log("사망!");
